@@ -11,6 +11,10 @@
     <p>Position: {{card.position}}</p>
     <p>Season: {{card.season}}</p>
   </div>
+  <div class="card-action">
+    <a href="{% url 'cards_update' card.id %}">Edit</a>
+    <a href="{% url 'cards_delete' card.id %}">Delete</a>
+  </div>
 </div>
 
 
