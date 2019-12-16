@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Card
 
 # Create your views here.
 
@@ -10,4 +10,7 @@ def about(request):
     return render(request, 'about.html')
 
 def cards_index(request):
-    return render(request, 'cards/index.html')
+    cards = Card.objects.all()
+    return render(request, 'cards/index.html', {
+        'cards': cards
+    })
