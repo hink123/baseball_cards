@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -12,3 +13,5 @@ class Card(models.Model):
     def __str__(self):
         return f"{self.name} ({self.id})"
     
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'card_id': self.id})
