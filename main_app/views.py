@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Card
+from .forms import OfferForm
 
 # Create your views here.
 
@@ -18,7 +19,11 @@ def cards_index(request):
 
 def cards_detail(request, card_id):
     card = Card.objects.get(id=card_id)
-    return render(request, 'cards/detail.html', {'card': card})
+    offer_form = OfferForm()
+    return render(request, 'cards/detail.html', {
+        'card': card,
+        'offer_form': offer_form
+    })
 
 class CardCreate(CreateView):
     model = Card
