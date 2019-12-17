@@ -10,4 +10,5 @@ urlpatterns = [
     path('cards/<int:pk>/update/', views.CardUpdate.as_view(), name='cards_update'),
     path('cards/<int:pk>/delete/', views.CardDelete.as_view(), name='cards_delete'),
     path('cards/<int:card_id>/add_offer/', views.add_offer, name='add_offer'),
+    path('cases/', views.CaseList.as_view(), name='cases_index'),
 ]

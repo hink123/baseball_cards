@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Card
+from .models import Card, Case
 from .forms import OfferForm
 
 # Create your views here.
@@ -44,3 +45,6 @@ def add_offer(request, card_id):
         new_offer.card_id = card_id
         new_offer.save()
     return redirect('detail', card_id=card_id)
+
+class CaseList(ListView):
+    model = Case
