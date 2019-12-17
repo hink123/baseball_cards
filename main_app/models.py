@@ -16,6 +16,15 @@ POSITIONS = (
     ('DH', 'Designated Hitter')
 )
 
+class Case(models.Model):
+    name = models.CharField(max_length=100)
+    value = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name
+    def get_absolute_url(self):
+        return reverse('case_detail', kwargs={'pk': self.id})
+
 class Card(models.Model):
     name = models.CharField(max_length=100)
     age = models.IntegerField()
