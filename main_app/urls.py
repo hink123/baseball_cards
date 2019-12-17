@@ -11,4 +11,7 @@ urlpatterns = [
     path('cards/<int:pk>/delete/', views.CardDelete.as_view(), name='cards_delete'),
     path('cards/<int:card_id>/add_offer/', views.add_offer, name='add_offer'),
     path('cases/', views.CaseList.as_view(), name='cases_index'),
+    path('cases/create/', views.CaseCreate.as_view(), name='cases_create'),
+    path('cases/<int:pk>', views.CaseDetail.as_view(), name='cases_detail'),
+    path('cases/<int:pk>/update/', views.CaseUpdate.as_view(), name='cases_update'),
 ]

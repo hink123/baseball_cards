@@ -23,7 +23,7 @@ class Case(models.Model):
     def __str__(self):
         return self.name
     def get_absolute_url(self):
-        return reverse('case_detail', kwargs={'pk': self.id})
+        return reverse('cases_detail', kwargs={'pk': self.id})
 
 class Card(models.Model):
     name = models.CharField(max_length=100)

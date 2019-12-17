@@ -48,3 +48,14 @@ def add_offer(request, card_id):
 
 class CaseList(ListView):
     model = Case
+
+class CaseDetail(DetailView):
+    model = Case
+
+class CaseCreate(CreateView):
+    model = Case
+    fields = '__all__'
+
+class CaseUpdate(UpdateView):
+    model = Case
+    fields = ['name', 'value']
