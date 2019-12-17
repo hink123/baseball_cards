@@ -59,3 +59,7 @@ class CaseCreate(CreateView):
 class CaseUpdate(UpdateView):
     model = Case
     fields = ['name', 'value']
+
+class CaseDelete(DeleteView):
+    model = Case
+    success_url = '/cases/'

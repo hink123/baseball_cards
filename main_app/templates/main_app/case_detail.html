@@ -13,7 +13,7 @@
         </div>
         <div class="card-action">
           <a href="{% url 'cases_update' case.id %}">Edit</a>
-          <a href="">Delete</a>
+          <a href="{% url 'cases_delete' case.id %}">Delete</a>
         </div>
       </div>
     </div>
