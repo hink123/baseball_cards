@@ -3,11 +3,27 @@ from django.urls import reverse
 
 # Create your models here.
 
+POSITIONS = (
+    ('P', 'Pitcher'),
+    ('C', 'Catcher'),
+    ('1B', 'First Base'),
+    ('2B', 'Second Base'),
+    ('3B', 'Third Base'),
+    ('SS', 'Short Stop'),
+    ('LF', 'Left Field'),
+    ('CF', 'Center Field'),
+    ('RF', 'Right Field'),
+    ('DH', 'Designated Hitter')
+)
+
 class Card(models.Model):
     name = models.CharField(max_length=100)
     age = models.IntegerField()
     team = models.CharField(max_length=100)
-    position = models.CharField(max_length=100)
+    position = models.CharField(
+        max_length=2,
+        choices=POSITIONS,
+    )
     season = models.IntegerField()
 
     def __str__(self):
