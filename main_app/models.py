@@ -23,3 +23,6 @@ class Offer(models.Model):
 
     def __str__(self):
         return f"${self.price} on {self.date}"
+    
+    class Meta:
+        ordering = ['-price']

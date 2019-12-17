@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="col s6">
-    <form action="" method="post">
+    <form action="{% url 'add_offer' card.id %}" method="post">
       {% csrf_token %}
       {{ offer_form.as_p }}
       <input type="submit" class="btn" value="Add Offer">
@@ -40,5 +40,14 @@
   </div>
 </div>
 
+<script>
+  var dateEl = document.getElementById('id_date');
+  M.Datepicker.init(dateEl, {
+    format: 'yyyy-mm-dd',
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true
+  });
+</script>
 
 {% endblock %}
