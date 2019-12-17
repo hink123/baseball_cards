@@ -17,9 +17,9 @@ class Card(models.Model):
         return reverse('detail', kwargs={'card_id': self.id})
 
 class Offer(models.Model):
-    date = models.DateField()
-    price = models.PositiveIntegerField()
+    date = models.DateField('Date Offered')
+    price = models.PositiveIntegerField('Bid')
     card = models.ForeignKey(Card, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.get_price_display()} on {self.date}"
+        return f"${self.price} on {self.date}"
