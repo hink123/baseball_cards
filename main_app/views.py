@@ -20,10 +20,12 @@ def cards_index(request):
 
 def cards_detail(request, card_id):
     card = Card.objects.get(id=card_id)
+    cases_card_doesnt_have = Case.objects.exclude(id__in = card.cases.all().values_list('id'))
     offer_form = OfferForm()
     return render(request, 'cards/detail.html', {
         'card': card,
-        'offer_form': offer_form
+        'offer_form': offer_form,
+        'cases': cases_card_doesnt_have
     })
 
 class CardCreate(CreateView):
@@ -63,3 +65,12 @@ class CaseUpdate(UpdateView):
 class CaseDelete(DeleteView):
     model = Case
     success_url = '/cases/'
+
+def add_assoc(request, card_id, case_id):
+    card = Card.objects.get(id=card_id)
+    card.cases.add(case_id)
+    return redirect('detail', card_id = card_id)
+
+def remove_assoc(request, card_id, case_id):
+    Card.objects.get(id=card_id).cases.remove(case_id)
+    return redirect('detail', card_id=card_id)

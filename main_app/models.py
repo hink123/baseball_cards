@@ -34,6 +34,7 @@ class Card(models.Model):
         choices=POSITIONS,
     )
     season = models.IntegerField()
+    cases = models.ManyToManyField(Case)
 
     def __str__(self):
         return f"{self.name} ({self.id})"
