@@ -17,4 +17,5 @@ urlpatterns = [
     path('cases/<int:pk>/delete/', views.CaseDelete.as_view(), name='cases_delete'),
     path('cases/<int:card_id>/add_assoc/<int:case_id>/', views.add_assoc, name='add_assoc'),
     path('cases/<int:card_id>/remove_assoc/<int:case_id>/', views.remove_assoc, name='remove_assoc'),
+    path('accounts/signup/', views.signup, name='signup'),
 ]
